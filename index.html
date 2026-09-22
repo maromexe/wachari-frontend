@@ -22,11 +22,106 @@
 <main>
     <section class="hero" aria-labelledby="hero-title">
         <h1 id="hero-title">Wachari</h1>
-        <p>Discover movies and TV shows that match your taste.</p>
+        <p>
+            Explore movies and TV shows, mark what you have already watched
+            and get recommendations that match your taste.
+        </p>
+
+        <form class="search" action="index.html" method="get" role="search">
+            <label class="visually-hidden" for="search-input">Search movies or TV shows</label>
+            <input
+                    class="search__input"
+                    type="search"
+                    id="search-input"
+                    name="q"
+                    placeholder="Search Movies or TV Shows">
+            <button class="search__button" type="submit">Search</button>
+        </form>
     </section>
     
     <section class="catalog" id="catalog" aria-labelledby="catalog-title">
-        <h2 id="catalog-title">All</h2>
+        <div class="filter-tabs" role="group" aria-label="Filter by type">
+            <button class="filter-tabs__button" type="button" aria-pressed="true">All</button>
+            <button class="filter-tabs__button" type="button" aria-pressed="false">Movies</button>
+            <button class="filter-tabs__button" type="button" aria-pressed="false">TV Shows</button>
+        </div>
+
+        <h2 id="catalog-title">All <span class="catalog__count">(8)</span></h2>
+
+        <ul class="card-list">
+            <li>
+                <article class="movie-card" data-type="movie">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/pulp-fiction.jpg" alt="Poster of Pulp Fiction" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 8.9</p>
+                        <h3 class="movie-card__title">Pulp Fiction</h3>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="movie-card" data-type="movie">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/the-hateful-eight.jpg" alt="Poster of The Hateful Eight" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 7.8</p>
+                        <h3 class="movie-card__title">The Hateful Eight</h3>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="movie-card" data-type="movie">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/nosferatu.jpg" alt="Poster of Nosferatu" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 7.2</p>
+                        <h3 class="movie-card__title">Nosferatu</h3>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="movie-card" data-type="movie">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/hail-mary.jpg" alt="Poster of Project Hail Mary" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 8.1</p>
+                        <h3 class="movie-card__title">Project Hail Mary</h3>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="movie-card" data-type="tv">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/game-of-thrones.jpg" alt="Poster of Game of Thrones" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 9.2</p>
+                        <h3 class="movie-card__title">Game of Thrones</h3>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="movie-card" data-type="tv">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/rick-and-morty.jpg" alt="Poster of Rick and Morty" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 9.1</p>
+                        <h3 class="movie-card__title">Rick and Morty</h3>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="movie-card" data-type="tv">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/bojack-horseman.jpg" alt="Poster of BoJack Horseman" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 8.8</p>
+                        <h3 class="movie-card__title">BoJack Horseman</h3>
+                    </a>
+                </article>
+            </li>
+            <li>
+                <article class="movie-card" data-type="tv">
+                    <a class="movie-card__link" href="pages/details.html">
+                        <img class="movie-card__poster" src="assets/images/posters/the-office.jpg" alt="Poster of The Office" loading="lazy">
+                        <p class="movie-card__rating"><span class="visually-hidden">Rating:</span> &#9734; 9.0</p>
+                        <h3 class="movie-card__title">The Office</h3>
+                    </a>
+                </article>
+            </li>
+        </ul>
     </section>
     
     <section class="news" id="news" aria-labelledby="news-title">
