@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact the Wachari team: questions, ideas and feedback.">
+    <title>Wachari — Contact us</title>
+</head>
+<body>
+<header class="site-header">
+    <a class="logo" href="../index.html" aria-label="Wachari home page">Wachari</a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <ul class="main-nav__list">
+            <li><a href="../index.html#catalog">Movies</a></li>
+            <li><a href="../index.html#catalog">TV Shows</a></li>
+            <li><a href="contact.html" aria-current="page">Contact us &rarr;</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="contact" aria-labelledby="contact-title">
+        <h1 id="contact-title">Contact us</h1>
+        <p>
+            Have a question, found a bug or have an idea for Wachari?
+            We will really appreciate it if you take the time to write to us.
+        </p>
+
+        <form class="feedback-form" action="#" method="post">
+            <p class="form-field">
+                <label for="feedback-name">Name</label>
+                <input
+                        type="text"
+                        id="feedback-name"
+                        name="name"
+                        placeholder="Your name"
+                        autocomplete="name"
+                        required>
+            </p>
+
+            <p class="form-field">
+                <label for="feedback-email">Email</label>
+                <input
+                        type="email"
+                        id="feedback-email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required>
+            </p>
+
+            <p class="form-field">
+                <label for="feedback-message">Message</label>
+                <textarea
+                        id="feedback-message"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your message here"
+                        required></textarea>
+            </p>
+
+            <p class="form-actions">
+                <button type="reset">Clear</button>
+                <button type="submit">Send message</button>
+            </p>
+        </form>
+
+        <address class="contacts">
+            Or write to us directly:
+            <a href="mailto:hello@wachari.example">hello@wachari.example</a>
+        </address>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 Wachari. All rights reserved.</p>
+</footer>
+</body>
+</html>
