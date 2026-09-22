@@ -1,0 +1,115 @@
+:root {
+    /* Palette from the Figma design system */
+    --color-grey-900: #121829;
+    --color-grey-800: #20283e;
+    --color-grey-700: #323b54;
+    --color-grey-600: #475069;
+    --color-grey-500: #61697f;
+    --color-grey-400: #767e94;
+    --color-grey-300: #8e95a9;
+    --color-grey-200: #a8aebf;
+    --color-grey-100: #c3c8d4;
+    --color-grey-50: #ebeef5;
+
+    --color-primary-50: #ebe9fe;
+    --color-primary-200: #beb7fb;
+    --color-primary-300: #9c92f8;
+    --color-primary-400: #7b6ef6;
+
+    --color-warning-500: #ffad49;
+    --color-white: #ffffff;
+    
+    --color-bg: var(--color-grey-900);
+    --color-text: var(--color-grey-300);
+    --color-heading: var(--color-grey-50);
+    --color-accent: var(--color-primary-400);
+    
+    --font-main: "Poppins", Arial, sans-serif;
+    
+    --space-4: 4px;
+    --space-8: 8px;
+    --space-12: 12px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-40: 40px;
+    --space-48: 48px;
+    --space-64: 64px;
+    --space-80: 80px;
+    --space-120: 120px;
+    
+    --container-width: 1200px;
+    --grid-gap: 24px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, dd,
+figure, fieldset {
+    margin: 0;
+}
+
+ul[class],
+ol[class] {
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primary-300);
+    outline-offset: 2px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
