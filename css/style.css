@@ -1,3 +1,7 @@
+/* ==========================================================================
+   1. Variables
+   ========================================================================== */
+
 :root {
     /* Palette from the Figma design system */
     --color-grey-900: #121829;
@@ -18,14 +22,17 @@
 
     --color-warning-500: #ffad49;
     --color-white: #ffffff;
-    
+
+    /* Semantic colors: what each color is used for */
     --color-bg: var(--color-grey-900);
     --color-text: var(--color-grey-300);
     --color-heading: var(--color-grey-50);
     --color-accent: var(--color-primary-400);
-    
+
+    /* Typography */
     --font-main: "Poppins", Arial, sans-serif;
-    
+
+    /* Spacing scale: multiples of 8 (plus 4 and 12 for small gaps) */
     --space-4: 4px;
     --space-8: 8px;
     --space-12: 12px;
@@ -37,10 +44,15 @@
     --space-64: 64px;
     --space-80: 80px;
     --space-120: 120px;
-    
+
+    /* Layout grid: 1440 max width minus 120px margins on both sides */
     --container-width: 1200px;
     --grid-gap: 24px;
 }
+
+/* ==========================================================================
+   2. Reset
+   ========================================================================== */
 
 *,
 *::before,
@@ -83,6 +95,10 @@ a {
     color: inherit;
 }
 
+/* ==========================================================================
+   3. Base
+   ========================================================================== */
+
 body {
     min-height: 100vh;
     font-family: var(--font-main);
@@ -102,6 +118,187 @@ h1, h2, h3, h4, h5, h6 {
     outline-offset: 2px;
 }
 
+/* ==========================================================================
+   4. Typography scale (Figma: Typography)
+   ========================================================================== */
+
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+h1 { font-size: 4rem;    line-height: 1.25; }  /* 64 / 80 */
+h2 { font-size: 3rem;    line-height: 1.17; }  /* 48 / 56 */
+h3 { font-size: 2rem;    line-height: 1.25; }  /* 32 / 40 */
+h4 { font-size: 1.5rem;  line-height: 1.33; }  /* 24 / 32 */
+h5 { font-size: 1.25rem; line-height: 1.2;  }  /* 20 / 24 */
+h6 { font-size: 1rem;    line-height: 1.5;  }  /* 16 / 24 */
+
+/* Form fields: Caption 14 / 16 */
+input,
+textarea,
+select {
+    font-size: 0.875rem;
+    line-height: 1.15;
+}
+
+::placeholder {
+    color: var(--color-grey-600);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   5. Header
+   ========================================================================== */
+
+/* Link Regular: SemiBold 16 / 24, +2% */
+.main-nav__list a {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-grey-200);
+    text-decoration: none;
+}
+
+.main-nav__list a[aria-current="page"] {
+    color: var(--color-primary-300);
+}
+
+/* ==========================================================================
+   6. Catalog
+   ========================================================================== */
+
+.filter-tabs__button {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-primary-50);
+}
+
+.catalog h2 {
+    font-size: 1.5rem;
+    line-height: 1.33;
+    color: var(--color-grey-400);
+}
+
+.catalog__count {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.movie-card__link {
+    text-decoration: none;
+}
+
+.movie-card__title {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-grey-50);
+}
+
+.movie-card__rating,
+.movie-details__rating {
+    font-size: 0.875rem;
+    color: var(--color-warning-500);
+}
+
+/* ==========================================================================
+   7. News
+   ========================================================================== */
+
+.news-card__title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.news-card__meta {
+    font-size: 0.75rem;
+    color: var(--color-grey-400);
+}
+
+.news-card__more summary {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-primary-300);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   8. Movie details
+   ========================================================================== */
+
+/* Body Extra Small: 12 / 16 */
+.breadcrumbs__list {
+    font-size: 0.75rem;
+    line-height: 1.33;
+    color: var(--color-primary-200);
+}
+
+.breadcrumbs__list a {
+    text-decoration: none;
+}
+
+/* <h1> in HTML, but H3 size in the design */
+.movie-details__title {
+    font-size: 2rem;
+    line-height: 1.25;
+}
+
+/* H4: Bold 24 / 32 */
+.movie-details__tagline {
+    font-size: 1.5rem;
+    line-height: 1.33;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--color-grey-50);
+}
+
+/* Body Large: 20 / 32 */
+.movie-details__description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-grey-300);
+}
+
+.movie-details__fact dt {
+    color: var(--color-grey-400);
+}
+
+.movie-details__fact dd {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-grey-100);
+}
+
+/* ==========================================================================
+   9. Auth (login, register)
+   ========================================================================== */
+
+.auth h1 {
+    color: var(--color-grey-100);
+}
+
+/* ==========================================================================
+   10. Footer
+   ========================================================================== */
+
+.site-footer {
+    font-size: 0.875rem;
+    color: var(--color-grey-400);
+}
+
+/* ==========================================================================
+   11. Utilities (keep at the end of the file)
+   ========================================================================== */
+
+/* Hides an element visually but keeps it available for screen readers */
 .visually-hidden {
     position: absolute;
     width: 1px;
