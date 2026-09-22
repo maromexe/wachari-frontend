@@ -1,0 +1,10 @@
+# IDE settings
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+
+# Archives for Moodle
+*.zip
+*.rar
