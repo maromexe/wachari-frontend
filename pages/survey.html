@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tell Wachari about your movie taste to get better recommendations.">
+    <title>Wachari — Survey</title>
+</head>
+<body>
+<header class="site-header">
+    <a class="logo" href="../index.html" aria-label="Wachari home page">
+        <svg class="logo__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M9.25621 15.7628L26.7802 4.768C30.097 2.6872 34.4002 5.0796 34.4002 9.0052V30.9948C34.4002 34.92 30.097 37.3128 26.7802 35.232L9.25621 24.2372C6.1366 22.2796 6.1366 17.7204 9.25621 15.7628Z" fill="#4BB7FD"/>
+            <path d="M30.7441 15.7628L13.2201 4.768C9.9033 2.6872 5.6001 5.0796 5.6001 9.0052V30.9948C5.6001 34.92 9.9033 37.3128 13.2201 35.232L30.7441 24.2372C33.8637 22.2796 33.8637 17.7204 30.7441 15.7628Z" fill="#7B6EF6"/>
+        </svg>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <ul class="main-nav__list">
+            <li><a href="../index.html#catalog">Movies</a></li>
+            <li><a href="../index.html#catalog">TV Shows</a></li>
+            <li><a href="survey.html" aria-current="page">Survey</a></li>
+            <li><a href="contact.html">Contact us &rarr;</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="survey" aria-labelledby="survey-title">
+        <h1 id="survey-title">Your movie taste</h1>
+        <p>
+            Answer a few questions so Wachari can recommend movies and TV shows
+            you will actually enjoy. It takes about a minute.
+        </p>
+
+        <form class="survey-form" action="#" method="post">
+            <p class="form-field">
+                <label for="survey-username">Username</label>
+                <input
+                        type="text"
+                        id="survey-username"
+                        name="username"
+                        placeholder="e.g. movie_lover"
+                        autocomplete="username"
+                        minlength="3"
+                        maxlength="20"
+                        required>
+            </p>
+
+            <p class="form-field">
+                <label for="survey-email">Email</label>
+                <input
+                        type="email"
+                        id="survey-email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required>
+            </p>
+
+            <p class="form-field">
+                <label for="survey-genre">Favourite genre</label>
+                <select id="survey-genre" name="favoriteGenre">
+                    <option value="action">Action</option>
+                    <option value="animation">Animation</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="crime">Crime</option>
+                    <option value="drama" selected>Drama</option>
+                    <option value="horror">Horror</option>
+                    <option value="sci-fi">Science Fiction</option>
+                    <option value="thriller">Thriller</option>
+                </select>
+            </p>
+            
+            <fieldset class="form-group">
+                <legend>What do you prefer to watch?</legend>
+
+                <input type="radio" id="format-movies" name="contentType" value="movies">
+                <label for="format-movies">Movies</label>
+
+                <input type="radio" id="format-tv" name="contentType" value="tv">
+                <label for="format-tv">TV Shows</label>
+
+                <input type="radio" id="format-both" name="contentType" value="both" checked>
+                <label for="format-both">Both</label>
+            </fieldset>
+            
+            <fieldset class="form-group">
+                <legend>How often do you watch movies or shows?</legend>
+
+                <input type="radio" id="frequency-daily" name="watchFrequency" value="daily">
+                <label for="frequency-daily">Every day</label>
+
+                <input type="radio" id="frequency-weekly" name="watchFrequency" value="weekly" checked>
+                <label for="frequency-weekly">A few times a week</label>
+
+                <input type="radio" id="frequency-monthly" name="watchFrequency" value="monthly">
+                <label for="frequency-monthly">A few times a month</label>
+
+                <input type="radio" id="frequency-rarely" name="watchFrequency" value="rarely">
+                <label for="frequency-rarely">Rarely</label>
+            </fieldset>
+            
+            <fieldset class="form-group">
+                <legend>Should your friends' taste affect your recommendations?</legend>
+
+                <input type="radio" id="friends-yes" name="useFriendsTaste" value="yes" checked>
+                <label for="friends-yes">Yes</label>
+
+                <input type="radio" id="friends-no" name="useFriendsTaste" value="no">
+                <label for="friends-no">No</label>
+            </fieldset>
+            
+            <fieldset class="form-group">
+                <legend>What matters to you in a recommendation?</legend>
+
+                <input type="checkbox" id="criteria-rating" name="criteria" value="rating" checked>
+                <label for="criteria-rating">High rating</label>
+
+                <input type="checkbox" id="criteria-genre" name="criteria" value="genre" checked>
+                <label for="criteria-genre">Favourite genre</label>
+
+                <input type="checkbox" id="criteria-actors" name="criteria" value="actors">
+                <label for="criteria-actors">Actors</label>
+
+                <input type="checkbox" id="criteria-director" name="criteria" value="director">
+                <label for="criteria-director">Director</label>
+
+                <input type="checkbox" id="criteria-friends" name="criteria" value="friends">
+                <label for="criteria-friends">Friends' choices</label>
+            </fieldset>
+            
+            <p class="form-field">
+                <label for="survey-suggestion">Suggest a movie everyone should see and tell us why</label>
+                <textarea
+                        id="survey-suggestion"
+                        name="suggestion"
+                        rows="5"
+                        placeholder="Movie title and a few words about it"></textarea>
+            </p>
+
+            <p class="form-actions">
+                <button type="reset">Clear</button>
+                <button type="submit">Submit</button>
+            </p>
+        </form>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 Wachari. All rights reserved.</p>
+</footer>
+</body>
+</html>

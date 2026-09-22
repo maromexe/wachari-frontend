@@ -8,12 +8,18 @@
 </head>
 <body>
 <header class="site-header">
-    <a class="logo" href="../index.html" aria-label="Wachari home page">Wachari</a>
+    <a class="logo" href="../index.html" aria-label="Wachari home page">
+        <svg class="logo__icon" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M9.25621 15.7628L26.7802 4.768C30.097 2.6872 34.4002 5.0796 34.4002 9.0052V30.9948C34.4002 34.92 30.097 37.3128 26.7802 35.232L9.25621 24.2372C6.1366 22.2796 6.1366 17.7204 9.25621 15.7628Z" fill="#4BB7FD"/>
+            <path d="M30.7441 15.7628L13.2201 4.768C9.9033 2.6872 5.6001 5.0796 5.6001 9.0052V30.9948C5.6001 34.92 9.9033 37.3128 13.2201 35.232L30.7441 24.2372C33.8637 22.2796 33.8637 17.7204 30.7441 15.7628Z" fill="#7B6EF6"/>
+        </svg>
+    </a>
 
     <nav class="main-nav" aria-label="Main navigation">
         <ul class="main-nav__list">
             <li><a href="../index.html#catalog">Movies</a></li>
             <li><a href="../index.html#catalog">TV Shows</a></li>
+            <li><a href="pages/survey.html">Survey</a></li>
             <li><a href="contact.html">Contact us &rarr;</a></li>
             <li><a href="login.html">Login</a></li>
         </ul>
@@ -57,9 +63,7 @@
                     darkly funny scenes.
                 </p>
 
-                <p class="movie-details__rating">
-                    <span class="visually-hidden">Rating:</span> &#9734; 8.9
-                </p>
+                <p class="movie-card__rating"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#icon-star"></use></svg> <span class="visually-hidden">Rating:</span> 8.9</p>
 
                 <dl class="movie-details__facts">
                     <div class="movie-details__fact">
@@ -88,4 +92,11 @@
     <p>&copy; 2026 Wachari. All rights reserved.</p>
 </footer>
 </body>
+
+<svg class="svg-sprite" hidden>
+    <symbol id="icon-star" viewBox="0 0 16 16" fill="none">
+        <path d="M9.15327 2.33999L10.3266 4.68666C10.4866 5.01333 10.9133 5.32666 11.2733 5.38666L13.3999 5.73999C14.7599 5.96666 15.0799 6.95333 14.0999 7.92666L12.4466 9.57999C12.1666 9.85999 12.0133 10.4 12.0999 10.7867L12.5733 12.8333C12.9466 14.4533 12.0866 15.08 10.6533 14.2333L8.65994 13.0533C8.29994 12.84 7.70661 12.84 7.33994 13.0533L5.34661 14.2333C3.91994 15.08 3.05327 14.4467 3.42661 12.8333L3.89994 10.7867C3.98661 10.4 3.83327 9.85999 3.55327 9.57999L1.89994 7.92666C0.926606 6.95333 1.23994 5.96666 2.59994 5.73999L4.72661 5.38666C5.07994 5.32666 5.50661 5.01333 5.66661 4.68666L6.83994 2.33999C7.47994 1.06666 8.51994 1.06666 9.15327 2.33999Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+</svg>
+
 </html>
