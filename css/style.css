@@ -1,9 +1,6 @@
-/* ==========================================================================
-   1. Variables
-   ========================================================================== */
+/* Variables */
 
 :root {
-    /* Palette from the Figma design system */
     --color-grey-900: #121829;
     --color-grey-800: #20283e;
     --color-grey-700: #323b54;
@@ -29,10 +26,9 @@
     --color-heading: var(--color-grey-50);
     --color-accent: var(--color-primary-400);
 
-    /* Typography */
     --font-main: "Poppins", Arial, sans-serif;
 
-    /* Spacing scale: multiples of 8 (plus 4 and 12 for small gaps) */
+    /* Spacing scale from the design system: multiples of 8, plus 4 and 12 */
     --space-4: 4px;
     --space-8: 8px;
     --space-12: 12px;
@@ -45,14 +41,13 @@
     --space-80: 80px;
     --space-120: 120px;
 
-    /* Layout grid: 1440 max width minus 120px margins on both sides */
+    /* Layout: 1440 max width minus 120px margins on both sides */
     --container-width: 1200px;
+    --page-padding: 24px;
     --grid-gap: 24px;
 }
 
-/* ==========================================================================
-   2. Reset
-   ========================================================================== */
+/* Reset */
 
 *,
 *::before,
@@ -95,9 +90,7 @@ a {
     color: inherit;
 }
 
-/* ==========================================================================
-   3. Base
-   ========================================================================== */
+/* Base */
 
 body {
     min-height: 100vh;
@@ -106,7 +99,6 @@ body {
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-bg);
-    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -118,9 +110,7 @@ h1, h2, h3, h4, h5, h6 {
     outline-offset: 2px;
 }
 
-/* ==========================================================================
-   4. Typography scale (Figma: Typography)
-   ========================================================================== */
+/* Typography scale (Figma: Typography) */
 
 h1, h2, h3 {
     font-weight: 600;
@@ -152,9 +142,39 @@ select {
     opacity: 1;
 }
 
-/* ==========================================================================
-   5. Header
-   ========================================================================== */
+/* Layout: centered container, max 1200px wide */
+
+.site-header,
+main,
+.site-footer {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+}
+
+/* Header */
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+}
+
+.logo {
+    display: flex;
+}
+
+.main-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-40);
+}
 
 /* Link Regular: SemiBold 16 / 24, +2% */
 .main-nav__list a {
@@ -162,15 +182,18 @@ select {
     letter-spacing: 0.02em;
     color: var(--color-grey-200);
     text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.main-nav__list a:hover {
+    color: var(--color-grey-50);
 }
 
 .main-nav__list a[aria-current="page"] {
     color: var(--color-primary-300);
 }
 
-/* ==========================================================================
-   6. Catalog
-   ========================================================================== */
+/* Catalog */
 
 .filter-tabs__button {
     font-weight: 600;
@@ -207,9 +230,7 @@ select {
     color: var(--color-warning-500);
 }
 
-/* ==========================================================================
-   7. News
-   ========================================================================== */
+/* News */
 
 .news-card__title {
     font-size: 1.25rem;
@@ -230,9 +251,7 @@ select {
     cursor: pointer;
 }
 
-/* ==========================================================================
-   8. Movie details
-   ========================================================================== */
+/* Movie details */
 
 /* Body Extra Small: 12 / 16 */
 .breadcrumbs__list {
@@ -277,26 +296,22 @@ select {
     color: var(--color-grey-100);
 }
 
-/* ==========================================================================
-   9. Auth (login, register)
-   ========================================================================== */
+/* Auth (login, register) */
 
 .auth h1 {
     color: var(--color-grey-100);
 }
 
-/* ==========================================================================
-   10. Footer
-   ========================================================================== */
+/* Footer */
 
 .site-footer {
     font-size: 0.875rem;
     color: var(--color-grey-400);
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
 }
 
-/* ==========================================================================
-   11. Utilities (keep at the end of the file)
-   ========================================================================== */
+/* Utilities (keep at the end of the file) */
 
 /* Hides an element visually but keeps it available for screen readers */
 .visually-hidden {
