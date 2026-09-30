@@ -1,0 +1,336 @@
+/* Variables */
+
+:root {
+    --color-grey-900: #121829;
+    --color-grey-800: #20283e;
+    --color-grey-700: #323b54;
+    --color-grey-600: #475069;
+    --color-grey-500: #61697f;
+    --color-grey-400: #767e94;
+    --color-grey-300: #8e95a9;
+    --color-grey-200: #a8aebf;
+    --color-grey-100: #c3c8d4;
+    --color-grey-50: #ebeef5;
+
+    --color-primary-50: #ebe9fe;
+    --color-primary-200: #beb7fb;
+    --color-primary-300: #9c92f8;
+    --color-primary-400: #7b6ef6;
+
+    --color-warning-500: #ffad49;
+    --color-white: #ffffff;
+
+    /* Semantic colors: what each color is used for */
+    --color-bg: var(--color-grey-900);
+    --color-text: var(--color-grey-300);
+    --color-heading: var(--color-grey-50);
+    --color-accent: var(--color-primary-400);
+
+    --font-main: "Poppins", Arial, sans-serif;
+
+    /* Spacing scale from the design system: multiples of 8, plus 4 and 12 */
+    --space-4: 4px;
+    --space-8: 8px;
+    --space-12: 12px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-40: 40px;
+    --space-48: 48px;
+    --space-64: 64px;
+    --space-80: 80px;
+    --space-120: 120px;
+
+    /* Layout: 1440 max width minus 120px margins on both sides */
+    --container-width: 1200px;
+    --page-padding: 24px;
+    --grid-gap: 24px;
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, dd,
+figure, fieldset {
+    margin: 0;
+}
+
+ul[class],
+ol[class] {
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 30%;
+    height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+/* Base */
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    background-repeat: no-repeat;
+    /*color glows from figma*/
+    background-image:
+            radial-gradient(520px 440px at 27% 12%, rgba(12, 66, 101, 0.85), rgba(12, 66, 101, 0) 70%),
+            radial-gradient(500px 420px at 80% 8%,  rgba(37, 30, 98, 0.85),  rgba(37, 30, 98, 0) 70%),
+            radial-gradient(540px 400px at 42% 45%, rgba(73, 44, 102, 0.75), rgba(73, 44, 102, 0) 70%),
+            radial-gradient(540px 400px at 78% 44%, rgba(2, 82, 58, 0.75),   rgba(2, 82, 58, 0) 70%),
+            radial-gradient(560px 460px at 25% 78%, rgba(90, 74, 244, 0.35), rgba(90, 74, 244, 0) 70%),
+            radial-gradient(560px 460px at 70% 76%, rgba(30, 165, 252, 0.30), rgba(30, 165, 252, 0) 70%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primary-300);
+    outline-offset: 2px;
+}
+
+/* Typography scale (Figma: Typography) */
+
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+h1 { font-size: 4rem;    line-height: 1.25; }  /* 64 / 80 */
+h2 { font-size: 3rem;    line-height: 1.17; }  /* 48 / 56 */
+h3 { font-size: 2rem;    line-height: 1.25; }  /* 32 / 40 */
+h4 { font-size: 1.5rem;  line-height: 1.33; }  /* 24 / 32 */
+h5 { font-size: 1.25rem; line-height: 1.2;  }  /* 20 / 24 */
+h6 { font-size: 1rem;    line-height: 1.5;  }  /* 16 / 24 */
+
+/* Form fields: Caption 14 / 16 */
+input,
+textarea,
+select {
+    font-size: 0.875rem;
+    line-height: 1.15;
+}
+
+::placeholder {
+    color: var(--color-grey-600);
+    opacity: 1;
+}
+
+/* Layout: centered container, max 1200px wide */
+
+.site-header,
+main,
+.site-footer {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+}
+
+/* Header */
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+}
+
+.logo {
+    display: flex;
+}
+
+.main-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-40);
+}
+
+/* Link Regular: SemiBold 16 / 24, +2% */
+.main-nav__list a {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-grey-200);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.main-nav__list a:hover {
+    color: var(--color-grey-50);
+}
+
+.main-nav__list a[aria-current="page"] {
+    color: var(--color-primary-300);
+}
+
+/* Catalog */
+
+.filter-tabs__button {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-primary-50);
+}
+
+.catalog h2 {
+    font-size: 1.5rem;
+    line-height: 1.33;
+    color: var(--color-grey-400);
+}
+
+.catalog__count {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.movie-card__link {
+    text-decoration: none;
+}
+
+.movie-card__title {
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--color-grey-50);
+}
+
+.movie-card__rating,
+.movie-details__rating {
+    font-size: 0.875rem;
+    color: var(--color-warning-500);
+}
+
+/* News */
+
+.news-card__title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.news-card__meta {
+    font-size: 0.75rem;
+    color: var(--color-grey-400);
+}
+
+.news-card__more summary {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--color-primary-300);
+    cursor: pointer;
+}
+
+/* Movie details */
+
+/* Body Extra Small: 12 / 16 */
+.breadcrumbs__list {
+    font-size: 0.75rem;
+    line-height: 1.33;
+    color: var(--color-primary-200);
+}
+
+.breadcrumbs__list a {
+    text-decoration: none;
+}
+
+/* <h1> in HTML, but H3 size in the design */
+.movie-details__title {
+    font-size: 2rem;
+    line-height: 1.25;
+}
+
+/* H4: Bold 24 / 32 */
+.movie-details__tagline {
+    font-size: 1.5rem;
+    line-height: 1.33;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--color-grey-50);
+}
+
+/* Body Large: 20 / 32 */
+.movie-details__description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-grey-300);
+}
+
+.movie-details__fact dt {
+    color: var(--color-grey-400);
+}
+
+.movie-details__fact dd {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-grey-100);
+}
+
+/* Auth (login, register) */
+
+.auth h1 {
+    color: var(--color-grey-100);
+}
+
+/* Footer */
+
+.site-footer {
+    font-size: 0.875rem;
+    color: var(--color-grey-400);
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
+}
+
+/* Utilities (keep at the end of the file) */
+
+/* Hides an element visually but keeps it available for screen readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
