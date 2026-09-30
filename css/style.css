@@ -70,7 +70,7 @@ ol[class] {
 
 img {
     display: block;
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
 }
 
@@ -99,6 +99,15 @@ body {
     line-height: 1.5;
     color: var(--color-text);
     background-color: var(--color-bg);
+    background-repeat: no-repeat;
+    /*color glows from figma*/
+    background-image:
+            radial-gradient(520px 440px at 27% 12%, rgba(12, 66, 101, 0.85), rgba(12, 66, 101, 0) 70%),
+            radial-gradient(500px 420px at 80% 8%,  rgba(37, 30, 98, 0.85),  rgba(37, 30, 98, 0) 70%),
+            radial-gradient(540px 400px at 42% 45%, rgba(73, 44, 102, 0.75), rgba(73, 44, 102, 0) 70%),
+            radial-gradient(540px 400px at 78% 44%, rgba(2, 82, 58, 0.75),   rgba(2, 82, 58, 0) 70%),
+            radial-gradient(560px 460px at 25% 78%, rgba(90, 74, 244, 0.35), rgba(90, 74, 244, 0) 70%),
+            radial-gradient(560px 460px at 70% 76%, rgba(30, 165, 252, 0.30), rgba(30, 165, 252, 0) 70%);
 }
 
 h1, h2, h3, h4, h5, h6 {
