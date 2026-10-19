@@ -185,6 +185,11 @@ select {
     opacity: 1;
 }
 
+::selection {
+    background-color: color-mix(in srgb, var(--color-primary-400) 40%, transparent);
+    color: var(--color-white);
+}
+
 /* Layout: centered container, max 1200px wide */
 
 .site-header,
@@ -281,7 +286,13 @@ main,
     color: var(--color-grey-50);
 }
 
-button:active {
+/* Disabled state from Figma Buttons */
+.form-actions button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+button:active:not(:disabled) {
     transform: translateY(1px);
 }
 
@@ -443,6 +454,10 @@ button:active {
     margin-bottom: var(--space-16);
 }
 
+.hero p::first-line {
+    color: var(--color-grey-100);
+}
+
 /* Frame 3 in Figma is 588px wide */
 .hero p,
 .survey > p,
@@ -455,7 +470,7 @@ button:active {
 
 .movie-details__banner {
     width: 100%;
-    max-height: 320px;
+    max-height: calc(var(--space-80) * 4);
     object-fit: cover;
     border-radius: var(--radius-md);
 }
@@ -469,6 +484,17 @@ button:active {
 
 .breadcrumbs__list a {
     text-decoration: none;
+}
+
+.breadcrumbs__list li {
+    display: inline;
+}
+
+/* Separator only between items, not after the last one */
+.breadcrumbs__list li:not(:last-child)::after {
+    content: "/";
+    margin: 0 var(--space-8);
+    color: var(--color-grey-500);
 }
 
 /* <h1> in HTML, but H3 size in the design */
@@ -493,6 +519,10 @@ button:active {
     color: var(--color-grey-300);
 }
 
+.movie-details__fact:not(:last-child) {
+    margin-bottom: var(--space-16);
+}
+
 .movie-details__fact dt {
     color: var(--color-grey-400);
 }
@@ -507,6 +537,10 @@ button:active {
 
 .form-field {
     margin-bottom: var(--space-24);
+}
+
+.form-field:focus-within label {
+    color: var(--color-grey-50);
 }
 
 .form-field label {
@@ -577,6 +611,11 @@ button:active {
     color: var(--color-grey-100);
 }
 
+/* Label right after a checked radio / checkbox */
+.form-group input:checked + label {
+    color: var(--color-grey-50);
+}
+
 /* Auth (login, register) */
 
 .auth h1 {
@@ -584,8 +623,7 @@ button:active {
 }
 
 .auth__illustration {
-    width: 100%;
-    max-width: 480px;
+    width: min(100%, 480px);
     object-fit: contain;
 }
 
