@@ -324,14 +324,41 @@ button:active:not(:disabled) {
 /* Catalog */
 
 .filter-tabs {
-    display: inline-flex;
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
     padding: var(--space-4);
     border-radius: var(--radius-md);
     background-color: var(--color-surface);
 }
 
+/* Purple pill under the active tab: one column wide (width minus paddings and gaps, divided by 3) */
+.filter-tabs::before {
+    content: "";
+    position: absolute;
+    top: var(--space-4);
+    bottom: var(--space-4);
+    left: var(--space-4);
+    width: calc((100% - var(--space-4) * 4) / 3);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-primary-400);
+    transition: transform 0.25s ease;
+}
+
+/* The modifier is set by Knockout; translateX % refers to the pill's own width (+ one gap per step) */
+.filter-tabs--movies::before {
+    transform: translateX(calc(100% + var(--space-4)));
+}
+
+.filter-tabs--tv::before {
+    transform: translateX(calc(200% + var(--space-8)));
+}
+
+/* Buttons sit above the pill */
 .filter-tabs__button {
+    position: relative;
+    z-index: 1;
     padding: var(--space-8) var(--space-24);
     border: 0;
     border-radius: var(--radius-sm);
@@ -342,16 +369,15 @@ button:active:not(:disabled) {
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
 }
 
-.filter-tabs__button:hover {
+.filter-tabs__button:not([aria-pressed="true"]):hover {
     background-color: rgba(255, 255, 255, 0.06);
 }
 
-.filter-tabs__button:active {
+.filter-tabs__button:not([aria-pressed="true"]):active {
     background-color: rgba(255, 255, 255, 0.10);
 }
 
 .filter-tabs__button[aria-pressed="true"] {
-    background-color: var(--color-primary-400);
     color: var(--color-white);
 }
 

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="js/main"></script>
 </head>
 <body>
 <header class="site-header">
@@ -56,10 +57,14 @@
     </section>
     
     <section class="catalog" id="catalog" aria-labelledby="catalog-title">
-        <div class="filter-tabs" role="group" aria-label="Filter by type">
-            <button class="filter-tabs__button" type="button" aria-pressed="true">All</button>
-            <button class="filter-tabs__button" type="button" aria-pressed="false">Movies</button>
-            <button class="filter-tabs__button" type="button" aria-pressed="false">TV Shows</button>
+        <div class="filter-tabs" role="group" aria-label="Filter by type"
+             data-bind="css: 'filter-tabs--' + active()">
+            <button class="filter-tabs__button" type="button" aria-pressed="true"
+                    data-bind="click: select.bind($data, 'all'), attr: { 'aria-pressed': pressed('all') }">All</button>
+            <button class="filter-tabs__button" type="button" aria-pressed="false"
+                    data-bind="click: select.bind($data, 'movies'), attr: { 'aria-pressed': pressed('movies') }">Movies</button>
+            <button class="filter-tabs__button" type="button" aria-pressed="false"
+                    data-bind="click: select.bind($data, 'tv'), attr: { 'aria-pressed': pressed('tv') }">TV Shows</button>
         </div>
 
         <h2 id="catalog-title">All <span class="catalog__count">(8)</span></h2>
