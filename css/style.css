@@ -79,6 +79,8 @@
     /* Semi-transparent on the dark background */
     --color-surface: rgba(255, 255, 255, 0.04);
     --color-border: rgba(255, 255, 255, 0.10);
+    --color-surface-hover: rgba(255, 255, 255, 0.08);
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 /* Reset */
@@ -215,6 +217,15 @@ main,
 
 .logo {
     display: flex;
+    transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo:active {
+    opacity: 0.6;
 }
 
 .main-nav__list {
@@ -233,8 +244,13 @@ main,
     transition: color 0.2s ease;
 }
 
-.main-nav__list a:hover {
+.main-nav__list a:hover,
+.main-nav__list a:focus-visible {
     color: var(--color-grey-50);
+}
+
+.main-nav__list a:active {
+    color: var(--color-primary-200);
 }
 
 .main-nav__list a[aria-current="page"] {
@@ -261,7 +277,7 @@ main,
     border-radius: var(--radius-sm);
     font-size: var(--fs-body);
     line-height: var(--lh-body);
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
 }
 
 /* Primary action */
@@ -270,8 +286,12 @@ main,
     color: var(--color-white);
 }
 
-.form-actions button[type="submit"]:hover {
+.form-actions button[type="submit"]:hover:not(:disabled) {
     background-color: var(--color-primary-300);
+}
+
+.form-actions button[type="submit"]:active:not(:disabled) {
+    background-color: color-mix(in srgb, var(--color-primary-400) 80%, black);
 }
 
 /* Secondary action */
@@ -281,9 +301,14 @@ main,
     color: var(--color-grey-200);
 }
 
-.form-actions button[type="reset"]:hover {
+.form-actions button[type="reset"]:hover:not(:disabled) {
     border-color: var(--color-grey-500);
     color: var(--color-grey-50);
+}
+
+.form-actions button[type="reset"]:active:not(:disabled) {
+    background-color: var(--color-surface);
+    border-color: var(--color-grey-300);
 }
 
 /* Disabled state from Figma Buttons */
@@ -314,11 +339,15 @@ button:active:not(:disabled) {
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-link);
     color: var(--color-primary-50);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
 }
 
 .filter-tabs__button:hover {
     background-color: rgba(255, 255, 255, 0.06);
+}
+
+.filter-tabs__button:active {
+    background-color: rgba(255, 255, 255, 0.10);
 }
 
 .filter-tabs__button[aria-pressed="true"] {
@@ -338,8 +367,17 @@ button:active:not(:disabled) {
     letter-spacing: 0;
 }
 
+/* 4 equal columns, as in the Figma catalog */
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-40) var(--grid-gap);
+    margin-top: var(--space-32);
+}
+
 .movie-card__link {
     display: block;
+    border-radius: var(--radius-md);
     text-decoration: none;
 }
 
@@ -353,12 +391,34 @@ button:active:not(:disabled) {
     background-color: var(--color-surface);
 }
 
+.movie-card__poster {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Lift the poster; transform does not shift the surrounding layout */
+.movie-card__link:hover .movie-card__poster,
+.movie-card__link:focus-visible .movie-card__poster {
+    transform: translateY(calc(var(--space-4) * -1));
+    box-shadow: var(--shadow-card);
+}
+
+.movie-card__link:active .movie-card__poster {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
 .movie-card__title {
+    transition: color 0.2s ease;
     margin-top: var(--space-4);
     font-size: var(--fs-body);
     line-height: var(--lh-body);
     letter-spacing: var(--ls-link);
     color: var(--color-grey-50);
+}
+
+.movie-card__link:hover .movie-card__title,
+.movie-card__link:focus-visible .movie-card__title {
+    color: var(--color-primary-200);
 }
 
 .movie-card__rating,
@@ -390,6 +450,10 @@ button:active:not(:disabled) {
     transition: border-color 0.2s ease;
 }
 
+.search:hover {
+    border-color: var(--color-grey-500);
+}
+
 .search:focus-within {
     border-color: var(--color-primary-400);
 }
@@ -410,6 +474,10 @@ button:active:not(:disabled) {
 
 .search__button:hover {
     color: var(--color-grey-200);
+}
+
+.search__button:active {
+    color: var(--color-white);
 }
 
 .search__input {
@@ -484,6 +552,15 @@ button:active:not(:disabled) {
 
 .breadcrumbs__list a {
     text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs__list a:hover {
+    color: var(--color-white);
+}
+
+.breadcrumbs__list a:active {
+    color: var(--color-primary-300);
 }
 
 .breadcrumbs__list li {
@@ -560,6 +637,20 @@ button:active:not(:disabled) {
     border-radius: var(--radius-md);
     background-color: var(--color-surface);
     color: var(--color-grey-50);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover {
+    border-color: var(--color-grey-500);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--color-primary-400);
+    background-color: var(--color-surface-hover);
 }
 
 .form-field textarea {
@@ -616,6 +707,19 @@ button:active:not(:disabled) {
     color: var(--color-grey-50);
 }
 
+.form-group label,
+.form-group input {
+    cursor: pointer;
+}
+
+.form-group label {
+    transition: color 0.2s ease;
+}
+
+.form-group label:hover {
+    color: var(--color-grey-50);
+}
+
 /* Auth (login, register) */
 
 .auth h1 {
@@ -643,6 +747,17 @@ button:active:not(:disabled) {
     color: var(--color-primary-300);
     text-decoration: underline;
     text-underline-offset: 0.2em;
+    transition: color 0.2s ease;
+}
+
+.auth__switch a:hover,
+.contacts a:hover {
+    color: var(--color-primary-200);
+}
+
+.auth__switch a:active,
+.contacts a:active {
+    color: var(--color-primary-400);
 }
 
 /* Footer */
