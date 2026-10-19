@@ -328,10 +328,22 @@ button:active {
 }
 
 .movie-card__link {
+    display: block;
     text-decoration: none;
 }
 
+/* Card Image: 320 x 476 in Figma */
+.movie-card__poster,
+.movie-details__poster {
+    width: 100%;
+    aspect-ratio: 320 / 476;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
 .movie-card__title {
+    margin-top: var(--space-4);
     font-size: var(--fs-body);
     line-height: var(--lh-body);
     letter-spacing: var(--ls-link);
@@ -342,6 +354,15 @@ button:active {
 .movie-details__rating {
     font-size: var(--fs-sm);
     color: var(--color-warning-500);
+}
+
+.movie-card__rating {
+    margin-top: var(--space-12);
+}
+
+/* Star next to the rating text */
+.icon {
+    vertical-align: -0.15em;
 }
 
 .search {
@@ -360,6 +381,11 @@ button:active {
 
 .search:focus-within {
     border-color: var(--color-primary-400);
+}
+
+.search__icon {
+    flex-shrink: 0;
+    color: var(--color-grey-600);
 }
 
 .search__button {
@@ -408,7 +434,31 @@ button:active {
     cursor: pointer;
 }
 
+/* Page intro: heading + lead paragraph (home, survey, contact) */
+
+.hero h1,
+.survey h1,
+.contact h1,
+.auth h1 {
+    margin-bottom: var(--space-16);
+}
+
+/* Frame 3 in Figma is 588px wide */
+.hero p,
+.survey > p,
+.contact > p {
+    max-width: 588px;
+    color: var(--color-grey-300);
+}
+
 /* Movie details */
+
+.movie-details__banner {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
 
 /* Body Extra Small: 12 / 16 */
 .breadcrumbs__list {
@@ -453,10 +503,108 @@ button:active {
     color: var(--color-grey-100);
 }
 
+/* Forms (survey, contact, login, register) */
+
+.form-field {
+    margin-bottom: var(--space-24);
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: var(--space-8);
+    font-weight: var(--fw-semibold);
+    color: var(--color-grey-100);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    min-height: 56px;
+    padding: 0 var(--space-16);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-grey-50);
+}
+
+.form-field textarea {
+    padding: var(--space-16);
+    resize: vertical;
+}
+
+/* Dropdown list is drawn by the browser, so it needs its own dark background */
+.form-field select option {
+    background-color: var(--color-grey-800);
+}
+
+.form-field__icon {
+    color: var(--color-grey-600);
+}
+
+.form-hint {
+    display: block;
+    margin-top: var(--space-4);
+    font-size: var(--fs-xs);
+    color: var(--color-grey-400);
+}
+
+/* Groups of radio buttons and checkboxes */
+.form-group {
+    margin: 0 0 var(--space-24);
+    padding: var(--space-16) var(--space-24);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+.form-group legend {
+    padding: 0 var(--space-8);
+    font-weight: var(--fw-semibold);
+    color: var(--color-grey-50);
+}
+
+.form-group input {
+    width: 20px;
+    height: 20px;
+    margin: 0 var(--space-8) 0 0;
+    vertical-align: middle;
+    accent-color: var(--color-primary-400);
+}
+
+.form-group label {
+    margin-right: var(--space-16);
+    color: var(--color-grey-100);
+}
+
 /* Auth (login, register) */
 
 .auth h1 {
     color: var(--color-grey-100);
+}
+
+.auth__illustration {
+    width: 100%;
+    max-width: 480px;
+    object-fit: contain;
+}
+
+.auth__switch,
+.contacts {
+    margin-top: var(--space-24);
+    color: var(--color-grey-300);
+}
+
+/* <address> is italic by default */
+.contacts {
+    font-style: normal;
+}
+
+.auth__switch a,
+.contacts a {
+    color: var(--color-primary-300);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
 }
 
 /* Footer */
@@ -466,6 +614,7 @@ button:active {
     color: var(--color-grey-400);
     padding-top: var(--space-48);
     padding-bottom: var(--space-48);
+    border-top: 1px solid var(--color-border);
 }
 
 /* Utilities (keep at the end of the file) */
