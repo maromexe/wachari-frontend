@@ -257,6 +257,63 @@ main,
     color: var(--color-primary-300);
 }
 
+/* Submenu */
+
+/* The parent is the reference point for the absolutely positioned submenu */
+.main-nav__item--has-submenu {
+    position: relative;
+}
+
+.main-nav__arrow {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    transition: transform 0.2s ease;
+}
+
+.main-nav__item--has-submenu:hover .main-nav__arrow,
+.main-nav__item--has-submenu:focus-within .main-nav__arrow {
+    transform: rotate(180deg);
+}
+
+/* Hidden with visibility/opacity (not display: none) so the transition works */
+.main-nav__submenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+    min-width: 160px;
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-grey-800);
+    box-shadow: var(--shadow-card);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(var(--space-8));
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* :focus-within opens the submenu when the focus is on the parent link or inside the list (keyboard) */
+.main-nav__item--has-submenu:hover .main-nav__submenu,
+.main-nav__item--has-submenu:focus-within .main-nav__submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-nav__submenu a {
+    display: block;
+    padding: var(--space-8) var(--space-16);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.main-nav__submenu a:hover,
+.main-nav__submenu a:focus-visible {
+    background-color: var(--color-surface-hover);
+}
+
 /* Buttons */
 
 .form-actions {
