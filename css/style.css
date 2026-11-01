@@ -3,7 +3,6 @@
 :root {
     --color-grey-900: #121829;
     --color-grey-800: #20283e;
-    --color-grey-700: #323b54;
     --color-grey-600: #475069;
     --color-grey-500: #61697f;
     --color-grey-400: #767e94;
@@ -18,6 +17,7 @@
     --color-primary-400: #7b6ef6;
 
     --color-warning-500: #ffad49;
+    --color-error: #ff6b6b;
     --color-white: #ffffff;
 
     /* Semantic colors: what each color is used for */
@@ -65,9 +65,7 @@
     --space-32: 32px;
     --space-40: 40px;
     --space-48: 48px;
-    --space-64: 64px;
     --space-80: 80px;
-    --space-120: 120px;
 
     /* Layout: 1440 max width minus 120px margins on both sides */
     --container-width: 1200px;
@@ -119,7 +117,7 @@ select {
 }
 
 button {
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 a {
@@ -224,10 +222,6 @@ main,
     opacity: 0.8;
 }
 
-.logo:active {
-    opacity: 0.6;
-}
-
 .main-nav__list {
     display: flex;
     flex-wrap: wrap;
@@ -247,10 +241,6 @@ main,
 .main-nav__list a:hover,
 .main-nav__list a:focus-visible {
     color: var(--color-grey-50);
-}
-
-.main-nav__list a:active {
-    color: var(--color-primary-200);
 }
 
 .main-nav__list a[aria-current="page"] {
@@ -314,6 +304,38 @@ main,
     background-color: var(--color-surface-hover);
 }
 
+/* Back to top */
+
+.back-to-top {
+    position: fixed;
+    bottom: var(--space-24);
+    left: var(--space-24);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    font-size: 24px;
+    box-shadow: var(--shadow-card);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s, background-color 0.2s ease;
+}
+
+/* The class is added by jQuery (js/back-to-top.js) after scrolling */
+.back-to-top--visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background-color: var(--color-primary-300);
+}
+
 /* Buttons */
 
 .form-actions {
@@ -334,7 +356,7 @@ main,
     border-radius: var(--radius-sm);
     font-size: var(--fs-body);
     line-height: var(--lh-body);
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 /* Primary action */
@@ -345,10 +367,6 @@ main,
 
 .form-actions button[type="submit"]:hover:not(:disabled) {
     background-color: var(--color-primary-300);
-}
-
-.form-actions button[type="submit"]:active:not(:disabled) {
-    background-color: color-mix(in srgb, var(--color-primary-400) 80%, black);
 }
 
 /* Secondary action */
@@ -363,25 +381,15 @@ main,
     color: var(--color-grey-50);
 }
 
-.form-actions button[type="reset"]:active:not(:disabled) {
-    background-color: var(--color-surface);
-    border-color: var(--color-grey-300);
-}
-
 /* Disabled state from Figma Buttons */
 .form-actions button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
 }
 
-button:active:not(:disabled) {
-    transform: translateY(1px);
-}
-
 /* Catalog */
 
 .filter-tabs {
-    position: relative;
     display: inline-grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
@@ -390,32 +398,7 @@ button:active:not(:disabled) {
     background-color: var(--color-surface);
 }
 
-/* Purple pill under the active tab: one column wide (width minus paddings and gaps, divided by 3) */
-.filter-tabs::before {
-    content: "";
-    position: absolute;
-    top: var(--space-4);
-    bottom: var(--space-4);
-    left: var(--space-4);
-    width: calc((100% - var(--space-4) * 4) / 3);
-    border-radius: var(--radius-sm);
-    background-color: var(--color-primary-400);
-    transition: transform 0.25s ease;
-}
-
-/* The modifier is set by Knockout; translateX % refers to the pill's own width (+ one gap per step) */
-.filter-tabs--movies::before {
-    transform: translateX(calc(100% + var(--space-4)));
-}
-
-.filter-tabs--tv::before {
-    transform: translateX(calc(200% + var(--space-8)));
-}
-
-/* Buttons sit above the pill */
 .filter-tabs__button {
-    position: relative;
-    z-index: 1;
     padding: var(--space-8) var(--space-24);
     border: 0;
     border-radius: var(--radius-sm);
@@ -423,18 +406,15 @@ button:active:not(:disabled) {
     font-weight: var(--fw-semibold);
     letter-spacing: var(--ls-link);
     color: var(--color-primary-50);
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .filter-tabs__button:not([aria-pressed="true"]):hover {
     background-color: rgba(255, 255, 255, 0.06);
 }
 
-.filter-tabs__button:not([aria-pressed="true"]):active {
-    background-color: rgba(255, 255, 255, 0.10);
-}
-
 .filter-tabs__button[aria-pressed="true"] {
+    background-color: var(--color-primary-400);
     color: var(--color-white);
 }
 
@@ -485,11 +465,6 @@ button:active:not(:disabled) {
     box-shadow: var(--shadow-card);
 }
 
-.movie-card__link:active .movie-card__poster {
-    transform: translateY(0);
-    box-shadow: none;
-}
-
 .movie-card__title {
     transition: color 0.2s ease;
     margin-top: var(--space-4);
@@ -504,8 +479,7 @@ button:active:not(:disabled) {
     color: var(--color-primary-200);
 }
 
-.movie-card__rating,
-.movie-details__rating {
+.movie-card__rating {
     font-size: var(--fs-sm);
     color: var(--color-warning-500);
 }
@@ -559,10 +533,6 @@ button:active:not(:disabled) {
     color: var(--color-grey-200);
 }
 
-.search__button:active {
-    color: var(--color-white);
-}
-
 .search__input {
     flex: 1;
     min-width: 0;
@@ -573,27 +543,6 @@ button:active:not(:disabled) {
 
 .search__input:focus {
     outline: none;
-}
-
-/* News */
-
-.news-card__title {
-    font-size: var(--fs-h5);
-    line-height: var(--lh-h5);
-    font-weight: var(--fw-bold);
-    letter-spacing: var(--ls-heading-bold);
-}
-
-.news-card__meta {
-    font-size: var(--fs-xs);
-    color: var(--color-grey-400);
-}
-
-.news-card__more summary {
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-link);
-    color: var(--color-primary-300);
-    cursor: pointer;
 }
 
 /* Page intro: heading + lead paragraph (home, survey, contact) */
@@ -640,10 +589,6 @@ button:active:not(:disabled) {
 
 .breadcrumbs__list a:hover {
     color: var(--color-white);
-}
-
-.breadcrumbs__list a:active {
-    color: var(--color-primary-300);
 }
 
 .breadcrumbs__list li {
@@ -757,6 +702,11 @@ button:active:not(:disabled) {
     color: var(--color-grey-400);
 }
 
+/* Message added by jQuery (js/auth-validation.js) */
+.form-error {
+    color: var(--color-error);
+}
+
 /* Groups of radio buttons and checkboxes */
 .form-group {
     margin: 0 0 var(--space-24);
@@ -836,11 +786,6 @@ button:active:not(:disabled) {
 .auth__switch a:hover,
 .contacts a:hover {
     color: var(--color-primary-200);
-}
-
-.auth__switch a:active,
-.contacts a:active {
-    color: var(--color-primary-400);
 }
 
 /* Footer */
